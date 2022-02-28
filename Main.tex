@@ -1,0 +1,83 @@
+%Change the following variables
+\def\confidential{1}
+\def\doclanguage{english}
+%\def\doclanguage{german}
+
+\documentclass[12pt,a4paper,titlepage]{article}
+\author{Patrick Zeitlmayr}
+\title{Hallo das ist ein Testtitel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[\expandafter\doclanguage]{babel}
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{acro}
+\usepackage{graphicx}
+\graphicspath{{Pictures/}}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage[backend=biber]{biblatex}
+\usepackage{tikz}				
+\usepackage[onehalfspacing]{setspace}
+\usepackage{caption, tabularx, lipsum}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\addbibresource{Files/bibliography.bib} %Adjust when needed
+\input{Files/abbreviations.tex}
+
+\onehalfspacing %DHBW Leitlinien
+
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Frontpage 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\pagenumbering{Roman}
+	\include{Files/Frontpage.tex}
+	\IfStrEq{\expandafter\doclanguage}{german}{\renewcommand\contentsname{Inhalt}}{}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Table of Content and co 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\tableofcontents
+	\clearpage
+	\listoffigures
+	\clearpage
+	\listoftables
+	\clearpage
+	
+	\IfStrEq{\expandafter\doclanguage}{english}{\printacronyms}
+	{\printacronyms[name = Abkürzungen]}
+	
+	
+	\clearpage
+	\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Main part of the Article, include the sections here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\include{Introduction}
+
+
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%End of the article
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\printbibliography
+
+
+\end{document}}
