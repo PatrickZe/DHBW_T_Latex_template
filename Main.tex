@@ -1,10 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Main is the root document
+%Compile with pdfLatex and biber
+%change the variables on the top of Main and Frontpage
+%include the files for every section in this document, Main part
+%The files should be of \section because the document is an article
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %Change the following variables
-\def\confidential{1}
+\def\confidential{1} %confidential = 1, non confidential = 0
 \def\doclanguage{english}
 %\def\doclanguage{german}
 
 \documentclass[12pt,a4paper,titlepage]{article}
-\author{}
+\author{Someone}
 \title{Hallo das ist ein Testtitel}
 
 
@@ -12,6 +20,7 @@
 %Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
+\usepackage{upgreek}
 \usepackage[\expandafter\doclanguage]{babel}
 \usepackage{etoolbox}
 \usepackage{ifthen}
@@ -30,12 +39,18 @@
 \usepackage{tikz}				
 \usepackage[onehalfspacing]{setspace}
 \usepackage{caption, tabularx, lipsum}
+\usepackage[headsepline=1.3pt, plainheadsepline, automark]{scrlayer-scrpage}
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 
 \addbibresource{Files/bibliography.bib} %Adjust when needed
 \input{Files/abbreviations.tex}
 
 \onehalfspacing %DHBW Leitlinien
+
+%headline
+\ohead*{\arbeit}
+\ihead*{\refauthor}
+\ofoot*{\pagemark}
 
 \begin{document}
 	
@@ -69,7 +84,7 @@
 %Main part of the Article, include the sections here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%\include{Introduction}
-
+	\section{test}
 
 
 	
